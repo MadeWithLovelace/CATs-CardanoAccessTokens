@@ -3,6 +3,8 @@
 I'm posting this concept here as well for further work and development on it, as well as recording tests and proof of concepts.
 
 Original Post Link: https://www.reddit.com/r/cardano/comments/r8c1xm/a_possible_solution_to_the_issue_i_raised_with/
+
+
 Original Post Content:
 ------------------TL;DR
 
