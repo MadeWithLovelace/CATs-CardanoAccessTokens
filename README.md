@@ -2,7 +2,13 @@
 
 ## Basic Concept / Proposal
 
-Users can mint native tokens named after their pubkeyhash. A smartcontract for minting would provably enforce minting tokens who's names == that minter's pubkeyhash. These Cardano Access Tokens or CAT tokens, can be included with smartcontract transactions where applicable/useful, which will prove who locked the transaction and who is unlocking it, particularly useful if validating if the unlocker was the original locker, without relying on datum. This provides a 100% transparently visible and verifiable solution wherein a smartcontract written to validate these correctly, would be unable to validate incorrectly even if the datum had been altered.  The following post goes into more detail.
+Users can mint native tokens named after their pubkeyhash. A smartcontract for minting would provably enforce minting tokens who's names == that minter's pubkeyhash. These Cardano Access Tokens or CAT tokens, can be included with smartcontract transactions where applicable/useful, which will prove who locked the transaction and who is unlocking it, particularly useful if validating if the unlocker was the original locker, without relying on datum. This provides a 100% transparently visible and verifiable solution wherein a smartcontract written to validate these correctly, would be unable to validate incorrectly even if the datum had been altered.  
+
+The minting smartcontract would embed at a minimum the hash, lock height for regenerating the policy id, so the access token's own policy id can be validated as having been minted by a trusted smartcontract which would have enforced naming after your pubkeyhash, guaranteeing proof of ownership for other levels of validation or verification. However within the smartcontracts validating you initially locked the funds and may unlock now, this allows for 100% onchain validation and proof as 3 points of validation are compared upon unlocking: the unlock signers key <-> the access token included in the unlock TX <-> the access token included at the script address being spent with this TX.  
+
+A smartcontract would not need to rely on datum for this type of validation. And you could compare those 3 against a datum value as well which would be useful in some instances. There are many use-cases for total on-chain validation using this approach, including specially minting project-related access tokens that need proof of key ownership and maybe some other value, represented in the last 8 characters left in the token name (pubkeyhash = 56 of the 64 available). 
+
+The following post goes into more detail.
 
 ## More details on the concept
 
