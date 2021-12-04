@@ -1,6 +1,10 @@
 # CardanoAccessToken
 
-I'm posting this concept here as well for further work and development on it, as well as recording tests and proof of concepts.
+## Basic Concept / Proposal
+
+Users can mint native tokens named after their pubkeyhash. A smartcontract for minting would provably enforce minting tokens who's names == that minter's pubkeyhash. These Cardano Access Tokens or CAT tokens, can be included with smartcontract transactions where applicable/useful, which will prove who locked the transaction and who is unlocking it, particularly useful if validating if the unlocker was the original locker, without relying on datum. This provides a 100% transparently visible and verifiable solution wherein a smartcontract written to validate these correctly, would be unable to validate incorrectly even if the datum had been altered.  The following post goes into more detail.
+
+## More details on the concept
 
 Original Post Link: https://www.reddit.com/r/cardano/comments/r8c1xm/a_possible_solution_to_the_issue_i_raised_with/
 
@@ -45,3 +49,7 @@ The tx-ins containing the nft are being spent to address == pubkeyhash/signer/nf
 With that simple validation, any smartcontract where you only want the original locker to unlock, this can be easily enforced without regard as to the datum risks in using webapps, etc. The entirety of the procedure of validation is builtin and totally onchain. A person would probably want a good amount as you would always lock 1 at these such smartcontracts.
 
 I'm eager to hear thoughts and if I got it right conceptually. I'll be doing some testing with it and seeing if I can build it to prove it in practice.
+
+## Next steps
+
+I'll be working on a proof of concept and keep this repo updated 
